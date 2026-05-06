@@ -1,0 +1,22 @@
+.layout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.contentArea {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 40px minmax(0, 1fr);
+}
+
+.mainContent {
+  height: 100%;
+  margin-left: 40px;
+  padding: 16px;
+  color: #111827;
+  background: #effff4;
+  overflow: auto;
+}

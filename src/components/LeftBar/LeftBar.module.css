@@ -1,0 +1,37 @@
+.leftBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  background: #2563eb;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.leftBarOpen {
+  width: 200px;
+}
+
+.toggleButton {
+  height: 40px;
+  width: 100%;
+  border: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: #1d4ed8;
+  cursor: pointer;
+}
+
+.menuContent {
+  flex: 1;
+  padding: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  background: #2563eb;
+}

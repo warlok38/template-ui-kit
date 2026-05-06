@@ -1,0 +1,10 @@
+.headerSecondary {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-left: 40px;
+  padding: 0 16px;
+  font-weight: 600;
+  color: #1f2937;
+  background: #bbc7ac;
+}
