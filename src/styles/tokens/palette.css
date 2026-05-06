@@ -1,0 +1,11 @@
+:root {
+  --palette-neutral-000: #ffffff;
+  --palette-neutral-900: #111827;
+  --palette-neutral-800: #1f2937;
+  --palette-neutral-950: #0f172a;
+  --palette-brand-500: #2563eb;
+  --palette-brand-600: #1d4ed8;
+  --palette-brand-700: #13529b;
+  --palette-accent-300: #bbc7ac;
+  --palette-surface-100: #effff4;
+}

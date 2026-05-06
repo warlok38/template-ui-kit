@@ -4,34 +4,34 @@
   left: 0;
   bottom: 0;
   z-index: 2;
-  width: 40px;
+  width: var(--layout-sidebar-width-collapsed);
   display: flex;
   flex-direction: column;
-  background: #2563eb;
+  background: var(--color-bg-sidebar);
   transition: width 0.2s ease;
   overflow: hidden;
 }
 
 .leftBarOpen {
-  width: 200px;
+  width: var(--layout-sidebar-width-expanded);
 }
 
 .toggleButton {
-  height: 40px;
+  height: var(--layout-header-height);
   width: 100%;
   border: 0;
-  color: #ffffff;
-  font-size: 12px;
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  background: #1d4ed8;
+  background: var(--color-bg-sidebar-accent);
   cursor: pointer;
 }
 
 .menuContent {
   flex: 1;
-  padding: 12px;
-  color: #ffffff;
+  padding: var(--space-3);
+  color: var(--color-text-inverse);
   font-weight: 600;
-  background: #2563eb;
+  background: var(--color-bg-sidebar);
 }

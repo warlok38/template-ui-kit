@@ -16,7 +16,7 @@ export function LeftBar() {
         {isOpen ? 'Close menu' : 'Open menu'}
       </button>
 
-      {isOpen && <div className={styles.menuContent}>LeftBar (200px)</div>}
+      {isOpen && <div className={styles.menuContent}>LeftBar</div>}
     </aside>
   )
 }

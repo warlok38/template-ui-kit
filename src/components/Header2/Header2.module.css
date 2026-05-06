@@ -1,10 +1,10 @@
 .headerSecondary {
   display: flex;
   align-items: center;
-  height: 40px;
-  margin-left: 40px;
-  padding: 0 16px;
+  height: var(--layout-header-height);
+  margin-left: var(--layout-sidebar-width-collapsed);
+  padding: var(--space-0) var(--space-4);
   font-weight: 600;
-  color: #1f2937;
-  background: #bbc7ac;
+  color: var(--color-text-muted);
+  background: var(--color-bg-header-secondary);
 }
