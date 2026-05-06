@@ -1,19 +1,21 @@
 .layout {
   height: 100vh;
-  display: grid;
-  grid-template-rows: var(--layout-header-height) minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
 .contentArea {
   position: relative;
   min-height: 0;
-  display: grid;
-  grid-template-rows: var(--layout-header-height) minmax(0, 1fr);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .mainContent {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   margin-left: var(--layout-sidebar-width-collapsed);
   padding: var(--space-4);
   color: var(--color-text-default);
