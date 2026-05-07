@@ -24,18 +24,15 @@
 }
 
 .collapsedLabel {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  position: absolute;
+  top: calc(var(--layout-header-height) + var(--space-2));
+  left: 50%;
   color: var(--color-text-inverse);
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transform: rotate(-90deg);
+  transform: translateX(-50%) rotate(-90deg);
   white-space: nowrap;
   opacity: 1;
   transition:
