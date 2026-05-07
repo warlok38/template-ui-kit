@@ -13,8 +13,10 @@ export function Layout({ children }: LayoutProps) {
 
       <section className={styles.contentArea}>
         <LeftBar />
-        <Header2 />
-        <main className={styles.mainContent}>{children}</main>
+        <div className={styles.contentColumn}>
+          <Header2 />
+          <main className={styles.mainContent}>{children}</main>
+        </div>
       </section>
     </div>
   )

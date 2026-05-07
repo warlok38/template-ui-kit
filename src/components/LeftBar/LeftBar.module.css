@@ -1,20 +1,16 @@
 .leftBar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  position: relative;
   z-index: 3;
+  flex: 0 0 var(--layout-sidebar-width-collapsed);
   width: var(--layout-sidebar-width-collapsed);
   display: flex;
   flex-direction: column;
   background: var(--color-bg-sidebar);
-  transition: width 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
 }
 
 .leftBarOpen {
-  width: var(--layout-sidebar-width-expanded);
   cursor: default;
 }
 
@@ -58,7 +54,10 @@
 
 .menuContent {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--layout-sidebar-width-expanded);
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -67,23 +66,28 @@
   font-weight: 600;
   background: var(--color-bg-sidebar);
   opacity: 0;
-  transform: translateX(-0.5rem);
+  transform: translateX(calc(var(--layout-sidebar-width-collapsed) - var(--layout-sidebar-width-expanded)));
+  box-shadow: 0 0 0 rgb(0 0 0 / 0%);
   pointer-events: none;
   visibility: hidden;
+  will-change: transform, opacity;
   transition:
-    opacity 180ms ease-in,
-    transform 180ms ease-in,
-    visibility 0ms linear 180ms;
+    opacity 160ms ease-in,
+    transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0ms linear 280ms;
 }
 
 .menuContentOpen {
   opacity: 1;
   transform: translateX(0);
+  box-shadow: 0 0 1.5rem rgb(0 0 0 / 32%);
   pointer-events: auto;
   visibility: visible;
   transition:
-    opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1) 60ms,
-    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1) 60ms,
+    opacity 180ms ease-out,
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
     visibility 0ms linear 0ms;
 }
 
@@ -183,7 +187,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .leftBar,
   .collapsedLabel,
   .menuContent,
   .menuContentOpen,

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   height: var(--layout-header-height);
-  margin-left: var(--layout-sidebar-width-collapsed);
   padding: var(--space-0) var(--space-4);
   font-weight: 600;
   color: var(--color-text-muted);
