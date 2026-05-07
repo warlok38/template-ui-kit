@@ -61,10 +61,6 @@
 .thumb svg {
   width: 0.95rem;
   height: 0.95rem;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 @media (prefers-reduced-motion: reduce) {
