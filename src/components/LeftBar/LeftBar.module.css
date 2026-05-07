@@ -3,35 +3,146 @@
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 3;
   width: var(--layout-sidebar-width-collapsed);
   display: flex;
   flex-direction: column;
   background: var(--color-bg-sidebar);
-  transition: width 0.2s ease;
+  transition: width 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
+  cursor: pointer;
 }
 
 .leftBarOpen {
   width: var(--layout-sidebar-width-expanded);
+  cursor: default;
 }
 
-.toggleButton {
-  height: var(--layout-header-height);
+.leftBar:focus-visible {
+  outline: 2px solid var(--color-text-inverse);
+  outline-offset: -2px;
+}
+
+.collapsedLabel {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  border: 0;
   color: var(--color-text-inverse);
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  background: var(--color-bg-sidebar-accent);
-  cursor: pointer;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  opacity: 1;
+  transition:
+    opacity 180ms ease-in,
+    visibility 0ms linear 180ms;
+}
+
+.leftBarOpen .collapsedLabel {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 120ms ease-in,
+    visibility 0ms linear 120ms;
 }
 
 .menuContent {
+  position: absolute;
+  inset: 0;
   flex: 1;
   padding: var(--space-3);
   color: var(--color-text-inverse);
   font-weight: 600;
   background: var(--color-bg-sidebar);
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity 180ms ease-in,
+    transform 180ms ease-in,
+    visibility 0ms linear 180ms;
+}
+
+.menuContentOpen {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition:
+    opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1) 60ms,
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1) 60ms,
+    visibility 0ms linear 0ms;
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.menuTitle {
+  font-size: var(--font-size-sm);
+}
+
+.closeButton {
+  height: 1.75rem;
+  width: 1.75rem;
+  border: 0;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  background: var(--color-bg-sidebar-accent);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-text-inverse);
+  outline-offset: 1px;
+}
+
+.menuBody {
+  display: flex;
+  flex: 1;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgb(0 0 0 / 32%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-in;
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leftBar,
+  .collapsedLabel,
+  .menuContent,
+  .menuContentOpen,
+  .backdrop,
+  .backdropVisible {
+    transition: none;
+  }
 }
