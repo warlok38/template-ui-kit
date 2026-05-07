@@ -26,9 +26,11 @@ export function LeftBar({ collapsedLabel = 'Меню' }: LeftBarProps) {
         onKeyDown={handleCollapsedMenuKeyDown}
         {...asideInteractionProps}
       >
-        <span className={styles.collapsedLabel} aria-hidden={isOpen}>
-          {collapsedLabel}
-        </span>
+        <div className={styles.collapsedLabelWrap}>
+          <span className={styles.collapsedLabel} aria-hidden={isOpen}>
+            {collapsedLabel}
+          </span>
+        </div>
 
         <div id={panelId} className={`${styles.menuContent} ${isOpen ? styles.menuContentOpen : ''}`} aria-hidden={menuAriaHidden}>
           <div className={styles.menuHeader}>
