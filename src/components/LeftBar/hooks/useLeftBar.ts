@@ -1,14 +1,9 @@
 'use client'
 
-import { useEffect, useId, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useEffect, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 
-type UseLeftBarParams = {
-  collapsedLabel: string
-}
-
-export function useLeftBar({ collapsedLabel }: UseLeftBarParams) {
+export function useLeftBar() {
   const [isOpen, setIsOpen] = useState(false)
-  const panelId = useId()
 
   const openLeftBar = () => {
     setIsOpen(true)
@@ -52,27 +47,17 @@ export function useLeftBar({ collapsedLabel }: UseLeftBarParams) {
         onClick: openLeftBar,
         role: 'button' as const,
         tabIndex: 0,
-        'aria-expanded': false,
-        'aria-controls': panelId,
-        'aria-label': `Открыть меню: ${collapsedLabel}`,
       }
     : {
         onClick: undefined,
         role: undefined,
         tabIndex: -1,
-        'aria-expanded': undefined,
-        'aria-controls': undefined,
-        'aria-label': undefined,
       }
 
   return {
     isOpen,
-    panelId,
     closeLeftBar,
     handleCollapsedMenuKeyDown,
     asideInteractionProps,
-    menuAriaHidden: !isOpen,
-    backdropAriaHidden: !isOpen,
-    backdropTabIndex: isOpen ? 0 : -1,
   }
 }

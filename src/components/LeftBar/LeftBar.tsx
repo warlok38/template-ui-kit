@@ -8,16 +8,7 @@ type LeftBarProps = {
 }
 
 export function LeftBar({ collapsedLabel = 'Меню' }: LeftBarProps) {
-  const {
-    isOpen,
-    panelId,
-    closeLeftBar,
-    handleCollapsedMenuKeyDown,
-    asideInteractionProps,
-    menuAriaHidden,
-    backdropAriaHidden,
-    backdropTabIndex,
-  } = useLeftBar({ collapsedLabel })
+  const { isOpen, closeLeftBar, handleCollapsedMenuKeyDown, asideInteractionProps } = useLeftBar()
 
   return (
     <>
@@ -27,15 +18,15 @@ export function LeftBar({ collapsedLabel = 'Меню' }: LeftBarProps) {
         {...asideInteractionProps}
       >
         <div className={styles.collapsedLabelWrap}>
-          <span className={styles.collapsedLabel} aria-hidden={isOpen}>
+          <span className={styles.collapsedLabel}>
             {collapsedLabel}
           </span>
         </div>
 
-        <div id={panelId} className={`${styles.menuContent} ${isOpen ? styles.menuContentOpen : ''}`} aria-hidden={menuAriaHidden}>
+        <div className={`${styles.menuContent} ${isOpen ? styles.menuContentOpen : ''}`}>
           <div className={styles.menuHeader}>
             <span className={styles.menuTitle}>{collapsedLabel}</span>
-            <button type="button" className={styles.closeButton} onClick={closeLeftBar} aria-label="Закрыть меню">
+            <button type="button" className={styles.closeButton} onClick={closeLeftBar}>
               ×
             </button>
           </div>
@@ -55,9 +46,6 @@ export function LeftBar({ collapsedLabel = 'Меню' }: LeftBarProps) {
       <button
         type="button"
         className={`${styles.backdrop} ${isOpen ? styles.backdropVisible : ''}`}
-        aria-label="Закрыть меню"
-        aria-hidden={backdropAriaHidden}
-        tabIndex={backdropTabIndex}
         onClick={closeLeftBar}
       />
     </>
